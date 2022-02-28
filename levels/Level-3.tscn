@@ -1,0 +1,227 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/White-square.jpg" type="Texture" id=2]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/light.png" type="Texture" id=4]
+[ext_resource path="res://tiles.tres" type="TileSet" id=5]
+[ext_resource path="res://coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/FFFFORWA.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://levels/Level-1.gd" type="Script" id=8]
+[ext_resource path="res://win_scene.tscn" type="PackedScene" id=9]
+[ext_resource path="res://assets/music/Retro Beat.ogg" type="AudioStream" id=10]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 20.0
+height = 414.0
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 1835, 10 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
+outline_size = 2
+font_data = ExtResource( 7 )
+
+[node name="Level-3" type="Node2D"]
+script = ExtResource( 8 )
+win_scene = ExtResource( 9 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -280, -451 )
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 0.470588, 1, 0.694118, 1 )
+tile_set = ExtResource( 5 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -1507304, 1, 0, -1114119, 1, 0, -786427, 1, 0, -786414, 1, 0, -655353, 1, 0, -655352, 1, 0, -655351, 1, 0, -655350, 1, 0, -655346, 1, 0, -524300, 1, 0, -524299, 1, 0, -524298, 1, 0, -524297, 1, 0, -589818, 1, 0, -458764, 1, 0, -458763, 1, 0, -458762, 1, 0, -458761, 1, 0, -458760, 1, 0, -524284, 1, 0, -524268, 1, 0, -524267, 1, 0, -524266, 1, 0, -524265, 1, 0, -524264, 1, 0, -524263, 1, 0, -524262, 1, 0, -524261, 1, 0, -393228, 1, 0, -393227, 1, 0, -393226, 1, 0, -393225, 1, 0, -393224, 1, 0, -393223, 1, 0, -458751, 1, 0, -458731, 1, 0, -458730, 1, 0, -458729, 1, 0, -458728, 1, 0, -458727, 1, 0, -458726, 1, 0, -458725, 1, 0, -327692, 1, 0, -327691, 1, 0, -327690, 1, 0, -327689, 1, 0, -327688, 1, 0, -327687, 1, 0, -393215, 1, 0, -393201, 1, 0, -393200, 1, 0, -393194, 1, 0, -393193, 1, 0, -393192, 1, 0, -393191, 1, 0, -393190, 1, 0, -393189, 1, 0, -262156, 1, 0, -262155, 1, 0, -262154, 1, 0, -262153, 1, 0, -262152, 1, 0, -262151, 1, 0, -262146, 1, 0, -327658, 1, 0, -327657, 1, 0, -327656, 1, 0, -327655, 1, 0, -327654, 1, 0, -327653, 1, 0, -196620, 1, 0, -196619, 1, 0, -196618, 1, 0, -196617, 1, 0, -196616, 1, 0, -196615, 1, 0, -196611, 1, 0, -196610, 1, 0, -262135, 1, 0, -262134, 1, 0, -262131, 1, 0, -262122, 1, 0, -262121, 1, 0, -262120, 1, 0, -262119, 1, 0, -262118, 1, 0, -262117, 1, 0, -131084, 1, 0, -131083, 1, 0, -131082, 1, 0, -131081, 1, 0, -131080, 1, 0, -131079, 1, 0, -196586, 1, 0, -196585, 1, 0, -196584, 1, 0, -196583, 1, 0, -196582, 1, 0, -196581, 1, 0, -65548, 1, 0, -65547, 1, 0, -65546, 1, 0, -65545, 1, 0, -65544, 1, 0, -65543, 1, 0, -131071, 1, 0, -131065, 1, 0, -131049, 1, 0, -131048, 1, 0, -131047, 1, 0, -131046, 1, 0, -131045, 1, 0, -12, 1, 0, -11, 1, 0, -10, 1, 0, -9, 1, 0, -8, 1, 0, -7, 1, 0, -6, 1, 0, -65533, 1, 0, -65532, 1, 0, -65531, 1, 0, -65512, 1, 0, -65511, 1, 0, -65510, 1, 0, -65509, 1, 0, 65524, 1, 0, 65525, 1, 0, 65526, 1, 0, 65527, 1, 0, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 0, 1, 0, 20, 1, 0, 24, 1, 0, 25, 1, 0, 26, 1, 0, 27, 1, 0, 131060, 1, 0, 131061, 1, 0, 131062, 1, 0, 131063, 1, 0, 131064, 1, 0, 131065, 1, 0, 131066, 1, 0, 131067, 1, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 1, 0, 65551, 1, 0, 65552, 1, 0, 65553, 1, 0, 65554, 1, 0, 65555, 1, 0, 65556, 1, 0, 65560, 1, 0, 65561, 1, 0, 65562, 1, 0, 65563, 1, 0, 196596, 1, 0, 196597, 1, 0, 196598, 1, 0, 196599, 1, 0, 196600, 1, 0, 196601, 1, 0, 196602, 1, 0, 196603, 1, 0, 131096, 1, 0, 131097, 1, 0, 131098, 1, 0, 131099, 1, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 253, -263 )
+current = true
+zoom = Vector2( 1.2, 1.2 )
+
+[node name="win-detect" type="Area2D" parent="."]
+position = Vector2( 14, 112 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="win-detect"]
+position = Vector2( 773, -470 )
+shape = SubResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="win-detect"]
+position = Vector2( 819, -497 )
+scale = Vector2( 1.94141, 1.30859 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.992157, 0.764706, 1 )
+energy = 0.81
+shadow_enabled = true
+shadow_gradient_length = 2.0
+
+[node name="Light2D3" type="Light2D" parent="win-detect"]
+position = Vector2( 819, -497 )
+scale = Vector2( 1.94141, 1.30859 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.992157, 0.764706, 1 )
+energy = 0.81
+shadow_enabled = true
+shadow_gradient_length = 2.0
+
+[node name="Light2D2" type="Light2D" parent="win-detect"]
+position = Vector2( -627, -544 )
+scale = Vector2( 1.94141, 1.30859 )
+texture = ExtResource( 4 )
+color = Color( 1, 0.992157, 0.764706, 1 )
+energy = 0.81
+shadow_enabled = true
+shadow_gradient_length = 2.0
+
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 69, -18 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 522, -336 )
+scale = Vector2( 1.00734, 1 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 284, -404 )
+scale = Vector2( 1.00734, 1 )
+
+[node name="background" type="Sprite" parent="."]
+modulate = Color( 0.0352941, 0.305882, 0.14902, 1 )
+position = Vector2( 249, -135 )
+scale = Vector2( 3, 3 )
+z_index = -100
+texture = ExtResource( 2 )
+
+[node name="up" type="Sprite" parent="."]
+modulate = Color( 0.470588, 1, 0.694118, 1 )
+position = Vector2( 716, -772 )
+rotation = -0.400505
+texture = ExtResource( 2 )
+
+[node name="up2" type="Sprite" parent="."]
+modulate = Color( 0.470588, 1, 0.694118, 1 )
+position = Vector2( -35, -712 )
+rotation = -1.08172
+texture = ExtResource( 2 )
+
+[node name="up3" type="Sprite" parent="."]
+modulate = Color( 0.470588, 1, 0.694118, 1 )
+position = Vector2( 253, -781 )
+rotation = -0.424946
+texture = ExtResource( 2 )
+
+[node name="off-screen" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="off-screen"]
+position = Vector2( 249, 76 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="off-screen"]
+position = Vector2( 921, 384 )
+rotation = 1.54833
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="off-screen"]
+position = Vector2( -385, 410 )
+rotation = 1.56442
+shape = SubResource( 6 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.631373, 0.631373, 0.631373, 1 )
+
+[node name="coin" parent="." instance=ExtResource( 6 )]
+position = Vector2( -175, -50 )
+
+[node name="coin2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -80, -143 )
+
+[node name="coin3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 44, -236 )
+
+[node name="coin4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 143, -267 )
+
+[node name="coin5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 246, -334 )
+
+[node name="coin6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 338, -333 )
+
+[node name="coin7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 114, -47 )
+
+[node name="coin8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 170, -46 )
+
+[node name="coin9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 325, -143 )
+
+[node name="coin10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 513, -207 )
+
+[node name="coin11" parent="." instance=ExtResource( 6 )]
+position = Vector2( 175, -396 )
+
+[node name="coin12" parent="." instance=ExtResource( 6 )]
+position = Vector2( 175, -396 )
+
+[node name="coin13" parent="." instance=ExtResource( 6 )]
+position = Vector2( 175, -396 )
+
+[node name="coin14" parent="." instance=ExtResource( 6 )]
+position = Vector2( 175, -396 )
+
+[node name="coin15" parent="." instance=ExtResource( 6 )]
+position = Vector2( 175, -396 )
+
+[node name="Coins" type="Label" parent="."]
+margin_left = 427.0
+margin_top = -461.0
+margin_right = 467.0
+margin_bottom = -433.0
+custom_colors/font_outline_modulate = Color( 0.129412, 0.129412, 0.129412, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.913725, 0.8, 0.403922, 1 )
+position = Vector2( 391, -449 )
+rotation = 0.785398
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 5
+
+[node name="Light2D" type="Light2D" parent="Sprite"]
+modulate = Color( 0.913725, 0.8, 0.403922, 1 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+shadow_enabled = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+autoplay = true
+attenuation = 4.14106
+
+[connection signal="body_entered" from="win-detect" to="." method="_on_windetect_body_entered"]
+[connection signal="body_entered" from="off-screen" to="Player" method="_on_offscreen_body_entered"]
+[connection signal="body_entered" from="coin" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin2" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin3" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin4" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin5" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin6" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin7" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin8" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin9" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin10" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin11" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin12" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin13" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin14" to="Player" method="_on_coin_body_entered"]
+[connection signal="body_entered" from="coin15" to="Player" method="_on_coin_body_entered"]

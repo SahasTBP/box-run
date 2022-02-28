@@ -1,0 +1,168 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/White-square.jpg" type="Texture" id=1]
+[ext_resource path="res://assets/FFFFORWA.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://LevelSelect.gd" type="Script" id=3]
+[ext_resource path="res://levels/Level-1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://levels/Level-4.tscn" type="PackedScene" id=5]
+[ext_resource path="res://levels/Level-3.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/Level-2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/Level-5.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/pixel_font.tres" type="DynamicFont" id=9]
+[ext_resource path="res://assets/music/Retro Beat.ogg" type="AudioStream" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 11
+font_data = ExtResource( 2 )
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource( 3 )
+level_1 = ExtResource( 4 )
+level_2 = ExtResource( 7 )
+level_3 = ExtResource( 6 )
+level_4 = ExtResource( 5 )
+level_5 = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.0470588, 0.329412, 0.160784, 1 )
+position = Vector2( -4.50003, -0.50001 )
+scale = Vector2( 1.514, 0.898 )
+texture = ExtResource( 1 )
+
+[node name="select" type="Label" parent="."]
+margin_left = -192.0
+margin_top = -115.0
+margin_right = 206.0
+margin_bottom = -45.0
+custom_colors/font_color = Color( 0.419608, 0.878431, 0.615686, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Select Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="select" type="Label" parent="select"]
+margin_left = -4.0
+margin_top = -8.0
+margin_right = 236.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 1 )
+text = "Select Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="level01" type="Button" parent="."]
+margin_left = -176.0
+margin_top = -16.0
+margin_right = -28.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 0.603922, 0.768627, 0.976471, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Level-01"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level02" type="Button" parent="."]
+margin_left = -176.0
+margin_top = 24.0
+margin_right = -28.0
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0.811765, 0.619608, 1, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Level-02"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level03" type="Button" parent="."]
+margin_left = -176.0
+margin_top = 64.0
+margin_right = -22.0
+margin_bottom = 106.0
+custom_colors/font_color = Color( 0.533333, 1, 0.729412, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Level-03"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level04" type="Button" parent="."]
+margin_left = 8.0
+margin_top = -16.0
+margin_right = 162.0
+margin_bottom = 26.0
+custom_colors/font_color = Color( 1, 0.964706, 0.568627, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Level-04"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="level05" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 162.0
+margin_bottom = 66.0
+custom_colors/font_color = Color( 0.741176, 0.741176, 0.741176, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Level-05"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back" type="Button" parent="."]
+margin_left = -256.0
+margin_top = 120.0
+margin_right = -179.0
+margin_bottom = 147.0
+custom_colors/font_color = Color( 0.737255, 1, 0.796078, 1 )
+custom_fonts/font = ExtResource( 9 )
+text = "< Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -8.0
+margin_top = 80.0
+margin_right = 248.0
+margin_bottom = 144.0
+custom_colors/font_color = Color( 0.560784, 0.615686, 0.552941, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Use W,A,D keys or Arrow keys to move. Jump onto Enemy to kill it. Complete the level to WIN"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+autoplay = true
+attenuation = 2.07053
+
+[connection signal="pressed" from="level01" to="." method="_on_level01_pressed"]
+[connection signal="pressed" from="level02" to="." method="_on_level02_pressed"]
+[connection signal="pressed" from="level03" to="." method="_on_level03_pressed"]
+[connection signal="pressed" from="level04" to="." method="_on_level04_pressed"]
+[connection signal="pressed" from="level05" to="." method="_on_level05_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]

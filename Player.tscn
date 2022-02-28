@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/pixelSquare.png" type="Texture" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/light.png" type="Texture" id=3]
+[ext_resource path="res://assets/sounds/jump1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/confirmation_001.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/sounds/pepSound2.ogg" type="AudioStream" id=6]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10.4, 11.6 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 14.2857, 14.2857 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Light2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "jump"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.535, 0.33 ), Vector2( 0.5, 0.5 ), Vector2( 0.3, 0.35875 ), Vector2( 0.2, 0.170625 ), Vector2( 0.220312, 0.5 ), Vector2( 0.350156, 0.415312 ), Vector2( 0.5, 0.5 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 2 )
+jumpforce = 550
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.57628e-07, 0.499999 )
+scale = Vector2( 1.25, 1.25 )
+shape = SubResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -5.96046e-08, -5.96046e-08 )
+scale = Vector2( 1.05, 1.05 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 3 )
+anims/jump = SubResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+color = Color( 0.309804, 0.309804, 0.309804, 1 )
+shadow_enabled = true
+
+[node name="JumpAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
+
+[node name="CoinAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="MoveAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
